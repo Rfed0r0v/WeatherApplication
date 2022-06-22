@@ -11,6 +11,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         val textViewID = findViewById<TextView>(R.id.textViewId1)
         val btnID = findViewById<Button>(R.id.btnWeather)
         btnID.setOnClickListener() {
