@@ -16,7 +16,6 @@ class MainActivity : AppCompatActivity() {
         val btnID = findViewById<Button>(R.id.btnWeather)
         btnID.setOnClickListener() {
             Intent(this, WeatherActivity::class.java).also(::startActivity)
-
         }
     }
 }
