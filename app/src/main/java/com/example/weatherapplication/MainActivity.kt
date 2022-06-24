@@ -13,9 +13,5 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val textViewID = findViewById<TextView>(R.id.textViewId1)
-        val btnID = findViewById<Button>(R.id.btnWeather)
-        btnID.setOnClickListener() {
-            Intent(this, WeatherActivity::class.java).also(::startActivity)
-        }
     }
 }
