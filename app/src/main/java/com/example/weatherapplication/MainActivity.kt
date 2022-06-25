@@ -12,6 +12,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val textViewID = findViewById<TextView>(R.id.textViewId1)
+        val textViewTemp = findViewById<TextView>(R.id.textViewTemp)
+        val textViewWind = findViewById<TextView>(R.id.textViewWind)
+        val textViewTown = findViewById<TextView>(R.id.textViewTown)
+        val btnWeather = findViewById<Button>(R.id.btnTownChoice)
+        btnWeather.setOnClickListener() {
+            Intent(this, TownChoiseActivity::class.java).also { startActivity(it) }
+        }
     }
 }
