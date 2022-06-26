@@ -16,7 +16,13 @@ class MainActivity : AppCompatActivity() {
         val textViewWind = findViewById<TextView>(R.id.textViewWind)
         val textViewTown = findViewById<TextView>(R.id.textViewTown)
         val btnWeather = findViewById<Button>(R.id.btnTownChoice)
-        btnWeather.setOnClickListener() {
+        val Temp = "22"
+        val Wind = "2"
+        val Town = "Лондон"
+        textViewTown.text = "Город: $Town"
+        textViewTemp.text = "Температура: $Temp C"
+        textViewWind.text = "Ветер: $Wind м/с"
+        btnWeather.setOnClickListener {
             Intent(this, TownChoiseActivity::class.java).also { startActivity(it) }
         }
     }
