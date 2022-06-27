@@ -5,36 +5,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-<!--    <RadioGroup-->
-<!--        android:layout_width="147dp"-->
-<!--        android:layout_height="99dp"-->
-<!--        android:layout_marginStart="4dp"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent">-->
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="147dp"
+        android:layout_height="99dp"
+        android:layout_marginStart="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-<!--        <RadioButton-->
-<!--            android:id="@+id/radioButtonLondon"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Лондон" />-->
+        <RadioButton
+            android:id="@+id/radioButtonLondon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Лондон" />
 
-<!--        <RadioButton-->
-<!--            android:id="@+id/radioButtonParis"-->
-<!--            android:layout_width="144dp"-->
-<!--            android:layout_height="48dp"-->
-<!--            android:layout_marginStart="4dp"-->
-<!--            android:text="Париж" />-->
+        <RadioButton
+            android:id="@+id/radioButtonParis"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Париж" />
 
-<!--    </RadioGroup>-->
+    </RadioGroup>
 
-<!--    <Button-->
-<!--        android:id="@+id/button2Main"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Back 2 main activity"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
+    <Button
+        android:id="@+id/butBack2Main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back 2 main activity"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
