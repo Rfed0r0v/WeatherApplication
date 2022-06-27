@@ -13,7 +13,6 @@
         android:layout_marginTop="92dp"
         android:text="Температура:"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.049"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,9 +22,9 @@
         android:layout_height="wrap_content"
         android:text="Сила ветра:"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.048"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewTemp" />
+
     <TextView
         android:id="@+id/textViewTown"
         android:layout_width="wrap_content"
@@ -33,7 +32,6 @@
         android:text="Город:"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.045"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewWind"
         app:layout_constraintVertical_bias="0.0" />

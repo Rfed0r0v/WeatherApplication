@@ -6,14 +6,10 @@ import android.os.Bundle
 import android.widget.*
 import com.example.watherapplication.R
 
-lateinit var radioButtonLondon:RadioButton
-lateinit var radioButtonParis:RadioButton
-var Temp = "22"
-var Wind = "2"
 var Town = "Лондон"
-lateinit var textViewTemp:TextView
-lateinit var textViewWind:TextView
-lateinit var textViewTown:TextView
+lateinit var textViewTemp: TextView
+lateinit var textViewWind: TextView
+lateinit var textViewTown: TextView
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,22 +17,27 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        var temp = "22"
+        var wind = "2"
+
         textViewTemp = findViewById<TextView>(R.id.textViewTemp)
         textViewWind = findViewById<TextView>(R.id.textViewWind)
         textViewTown = findViewById<TextView>(R.id.textViewTown)
         val btnWeather = findViewById<Button>(R.id.btnTownChoice)
 
-        //radioButtonLondon = findViewById<RadioButton>(R.id.radioButtonLondon)
-        //radioButtonParis = findViewById<RadioButton>(R.id.radioButtonParis)
-
+        if (Town == "Лондон") {
+            temp = "22"
+            wind = "1"
+        }
+        if (Town == "Париж") {
+            temp = "26"
+            wind = "5"
+        }
         textViewTown.text = "Город: $Town"
-        textViewTemp.text = "Температура: $Temp C"
-        textViewWind.text = "Ветер: $Wind м/с"
+        textViewTemp.text = "Температура: $temp C"
+        textViewWind.text = "Ветер: $wind м/с"
         btnWeather.setOnClickListener {
             Intent(this, TownChoiseActivity::class.java).also { startActivity(it) }
         }
     }
-
-
-
 }
