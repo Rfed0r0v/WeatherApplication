@@ -13,7 +13,6 @@ object WeatherAPIClient {
 
     private val weatherAPI = retrofit.create(WeatherAPI::class.java)
     fun getApi(): WeatherAPI {
-
         return weatherAPI
     }
 }
