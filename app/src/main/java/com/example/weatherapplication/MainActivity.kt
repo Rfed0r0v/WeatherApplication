@@ -6,10 +6,17 @@ import android.os.Bundle
 import android.widget.*
 import com.example.watherapplication.R
 
-var Town = "Лондон"
 lateinit var textViewTemp: TextView
 lateinit var textViewWind: TextView
 lateinit var textViewTown: TextView
+lateinit var textViewTempAct2: TextView
+lateinit var textViewWindAct2: TextView
+lateinit var textViewTownAct2: TextView
+
+var temp = "22"
+var wind = "2"
+val countries = arrayOf("Лондон", "Париж", "Катманду")
+var Town = countries[0]
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,21 +24,23 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var temp = "22"
-        var wind = "2"
-
         textViewTemp = findViewById<TextView>(R.id.textViewTemp)
         textViewWind = findViewById<TextView>(R.id.textViewWind)
         textViewTown = findViewById<TextView>(R.id.textViewTown)
         val btnWeather = findViewById<Button>(R.id.btnTownChoice)
 
-        if (Town == "Лондон") {
+        if (Town == countries[0]) {
             temp = "22"
             wind = "1"
         }
-        if (Town == "Париж") {
+        if (Town == countries[1]) {
             temp = "26"
             wind = "5"
+        }
+
+        if (Town == countries[2]) {
+            temp = "33"
+            wind = "2"
         }
         textViewTown.text = "Город: $Town"
         textViewTemp.text = "Температура: $temp C"

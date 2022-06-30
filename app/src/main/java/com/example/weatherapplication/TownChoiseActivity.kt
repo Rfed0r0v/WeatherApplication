@@ -9,12 +9,33 @@ import com.example.watherapplication.R
 
 
 class TownChoiseActivity : AppCompatActivity() {
-    var countries = arrayOf("Лондон", "Париж", "Бухтенхуде")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_town_choise)
         val radGrp = findViewById<RadioGroup>(R.id.radioGroup)
+
+        textViewTempAct2 = findViewById<TextView>(R.id.textViewTempAct2)
+        textViewWindAct2 = findViewById<TextView>(R.id.textViewWindAct2)
+        textViewTownAct2 = findViewById<TextView>(R.id.textViewTownAct2)
+//        val btnWeather = findViewById<Button>(R.id.btnTownChoice)
+
+        if (Town == countries[0]) {
+            temp = "22"
+            wind = "1"
+        }
+        if (Town == countries[1]) {
+            temp = "26"
+            wind = "5"
+        }
+
+        if (Town == countries[2]) {
+            temp = "23"
+            wind = "3"
+        }
+        textViewTown.text = "Город: $Town"
+        textViewTemp.text = "Температура: $temp C"
+        textViewWind.text = "Ветер: $wind м/с"
 
         val spinner = findViewById<Spinner>(R.id.spinner)
         val adapter: ArrayAdapter<String> =
@@ -29,9 +50,10 @@ class TownChoiseActivity : AppCompatActivity() {
                 id: Long
             ) {
                 Town = parent.getItemAtPosition(position).toString()
+                UpdateInfo().updateInfo()
                 //Town = countries[position]
-                val intent = Intent(this@TownChoiseActivity, MainActivity::class.java)
-                startActivity(intent)
+                //val intent = Intent(this@TownChoiseActivity, MainActivity::class.java)
+                //startActivity(intent)
 
 //                    Intent(this, MainActivity::class.java).also { startActivity(this,MainActivity) }
             }
@@ -48,6 +70,10 @@ class TownChoiseActivity : AppCompatActivity() {
             RadioGroup.OnCheckedChangeListener { group, checkedId ->
                 val radio: RadioButton = findViewById(checkedId)
                 Town = radio.text.toString()
+                UpdateInfo().updateInfo()
+
             })
     }
+
+
 }
