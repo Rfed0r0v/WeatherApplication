@@ -3,6 +3,7 @@ package com.example.weatherapplication
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import com.example.watherapplication.R
@@ -12,21 +13,31 @@ import com.example.weatherapplication.features.weather_screen.data.WeatherRemote
 import com.example.weatherapplication.features.weather_screen.data.WeatherRepo
 import com.example.weatherapplication.features.weather_screen.data.WeatherRepoImplement
 import com.example.weatherapplication.features.weather_screen.ui.WeatherScreenPresenter
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
-    private val presenter = WeatherScreenPresenter(
-        WeatherInteractor(
-            WeatherRepoImplement(
-                WeatherRemoteSource(WeatherAPIClient.getApi())
-            )
-        )
-    )
+    private lateinit var presenter: WeatherScreenPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        presenter = WeatherScreenPresenter(
+            WeatherInteractor(
+                WeatherRepoImplement(
+                    WeatherRemoteSource(WeatherAPIClient.getApi())
+                )
+            )
+        )
+        var weather = ""
         val textViewID = findViewById<TextView>(R.id.textViewId1)
-        textViewID.text = presenter.getWeather()
+
+        GlobalScope.launch {
+            Log.d("Net", presenter.interactor.getWeather())
+
+        }
+        textViewID.text
+
     }
 }

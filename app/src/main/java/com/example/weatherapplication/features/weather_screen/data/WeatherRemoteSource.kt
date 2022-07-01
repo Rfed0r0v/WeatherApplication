@@ -1,10 +1,10 @@
 package com.example.weatherapplication.features.weather_screen.data
 
-import retrofit2.Response
+import com.example.weatherapplication.features.weather_screen.data.model.WeatherRemoteModel
 
 class WeatherRemoteSource(private val api: WeatherAPI) {
     // TODO Add query
-    fun getWeather(): Response<String> {
-        return api.getWeather(query = "Moskow")
+    suspend fun getWeather(): WeatherRemoteModel {
+        return api.getWeather(query = "Moscow")
     }
 }
