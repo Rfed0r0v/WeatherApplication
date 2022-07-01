@@ -32,12 +32,13 @@ class MainActivity : AppCompatActivity() {
         )
         var weather = ""
         val textViewID = findViewById<TextView>(R.id.textViewId1)
+        textViewID.text
 
         GlobalScope.launch {
             Log.d("Net", presenter.interactor.getWeather())
 
         }
-        textViewID.text
+
 
     }
 }
