@@ -1,10 +1,19 @@
 package com.example.weatherapplication
 
-import android.widget.Spinner
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.*
+
+import androidx.lifecycle.lifecycleScope
 import com.example.watherapplication.R
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class UpdateInfo {
     fun updateInfo() {
+
+
+
 
 //            val spinner = spinnerView
 //                spinner.setSelection(radioChecked)

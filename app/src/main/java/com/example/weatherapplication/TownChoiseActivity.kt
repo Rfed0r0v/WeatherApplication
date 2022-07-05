@@ -5,7 +5,11 @@ import android.os.Bundle
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.example.watherapplication.R
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 lateinit var textViewTempAct2: TextView
 lateinit var textViewWindAct2: TextView
@@ -24,6 +28,11 @@ class TownChoiseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_town_choise)
         val radGrp = findViewById<RadioGroup>(R.id.radioGroup)
+
+        lateinit var radio: RadioButton
+
+        val radioButtonsArray =
+            arrayOf(R.id.radioButtonLondon, R.id.radioButtonParis, R.id.radioButtonKatmandu)
 
         textViewTempAct2 = findViewById<TextView>(R.id.textViewTempAct2)
         textViewWindAct2 = findViewById<TextView>(R.id.textViewWindAct2)
@@ -78,15 +87,26 @@ class TownChoiseActivity : AppCompatActivity() {
             Intent(this, MainActivity::class.java).also { startActivity(it) }
         }
 
-        radGrp.setOnCheckedChangeListener(
-            RadioGroup.OnCheckedChangeListener { group, checkedId ->
+        radGrp.setOnCheckedChangeListener { group, checkedId ->
 //                radioChecked = checkedId
 
-                val radio: RadioButton = findViewById(checkedId)
+            radio = findViewById(checkedId)
 //                radioView = radio
-                Town = radio.text.toString()
-                UpdateInfo().updateInfo()
+            Town = radio.text.toString()
+            UpdateInfo().updateInfo()
 
-            })
+        }
+        lifecycleScope.launch(Dispatchers.Main) {
+            while (true) {
+                for (i in 0 until spinner.count) {
+                    spinner.setSelection(i)
+                    radio = findViewById(radioButtonsArray[i])
+                    radio.setChecked(true)
+                    delay(1000L)
+                }
+            }
+        }
     }
+
+
 }
