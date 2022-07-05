@@ -6,17 +6,16 @@ import android.os.Bundle
 import android.widget.*
 import com.example.watherapplication.R
 
+val COUNTRIES = arrayOf("Лондон", "Париж", "Катманду")
+
 lateinit var textViewTemp: TextView
 lateinit var textViewWind: TextView
 lateinit var textViewTown: TextView
-lateinit var textViewTempAct2: TextView
-lateinit var textViewWindAct2: TextView
-lateinit var textViewTownAct2: TextView
 
-var temp = "22"
-var wind = "2"
-val countries = arrayOf("Лондон", "Париж", "Катманду")
-var Town = countries[0]
+//lateinit var radioView:RadioButton
+//lateinit var spinnerView:Spinner
+//var radioChecked:Int = 0
+//var spinnerChecked:Int = 0
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,16 +28,16 @@ class MainActivity : AppCompatActivity() {
         textViewTown = findViewById<TextView>(R.id.textViewTown)
         val btnWeather = findViewById<Button>(R.id.btnTownChoice)
 
-        if (Town == countries[0]) {
+        if (Town == COUNTRIES[0]) {
             temp = "22"
             wind = "1"
         }
-        if (Town == countries[1]) {
+        if (Town == COUNTRIES[1]) {
             temp = "26"
             wind = "5"
         }
 
-        if (Town == countries[2]) {
+        if (Town == COUNTRIES[2]) {
             temp = "33"
             wind = "2"
         }
