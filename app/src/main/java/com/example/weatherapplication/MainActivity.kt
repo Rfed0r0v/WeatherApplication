@@ -6,16 +6,13 @@ import android.os.Bundle
 import android.widget.*
 import com.example.watherapplication.R
 
-val COUNTRIES = arrayOf("Лондон", "Париж", "Катманду")
+
 
 lateinit var textViewTemp: TextView
 lateinit var textViewWind: TextView
 lateinit var textViewTown: TextView
 
-//lateinit var radioView:RadioButton
-//lateinit var spinnerView:Spinner
-//var radioChecked:Int = 0
-//var spinnerChecked:Int = 0
+
 
 class MainActivity : AppCompatActivity() {
 
