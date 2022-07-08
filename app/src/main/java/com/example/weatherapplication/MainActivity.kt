@@ -13,8 +13,10 @@ import com.example.weatherapplication.features.weather_screen.data.WeatherRemote
 import com.example.weatherapplication.features.weather_screen.data.WeatherRepo
 import com.example.weatherapplication.features.weather_screen.data.WeatherRepoImplement
 import com.example.weatherapplication.features.weather_screen.ui.WeatherScreenPresenter
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class MainActivity : AppCompatActivity() {
     private lateinit var presenter: WeatherScreenPresenter
@@ -35,7 +37,10 @@ class MainActivity : AppCompatActivity() {
         textViewID.text
 
         GlobalScope.launch {
-            Log.d("Net", presenter.interactor.getWeather())
+            withContext(Dispatchers.Main) {
+                textViewID.text = presenter.getWeather()
+            }
+//            Log.d("Net", presenter.interactor.getWeather())
 
         }
 
