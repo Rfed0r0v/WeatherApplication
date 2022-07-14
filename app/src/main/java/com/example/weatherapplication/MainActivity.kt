@@ -25,13 +25,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        presenter = WeatherScreenPresenter(
-            WeatherInteractor(
-                WeatherRepoImplement(
-                    WeatherRemoteSource(WeatherAPIClient.getApi())
-                )
-            )
-        )
+
         var weather = ""
         val textViewID = findViewById<TextView>(R.id.textViewId1)
         textViewID.text
