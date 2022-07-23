@@ -1,24 +1,37 @@
 package com.example.weatherapplication.features.weather_screen.ui
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.weatherapplication.base.BaseViewModel
 import com.example.weatherapplication.base.Event
 import com.example.weatherapplication.features.weather_screen.WeatherInteractor
+import kotlinx.coroutines.launch
 
 class WeatherScreenViewModel(val interactor: WeatherInteractor) : BaseViewModel<ViewState>() {
-    suspend fun getWeather(): String {
-        return interactor.getWeather()
-    }
 
-    override fun initialViewState(): ViewState = ViewState(title = "hello", temperature = "")
+    override fun initialViewState(): ViewState =
+        ViewState(isLoading = false, title = "hello", temperature = "")
 
-    override suspend fun reduce(event: Event, previousState: ViewState): ViewState? {
+    override fun reduce(event: Event, previousState: ViewState): ViewState? {
         when (event) {
             is UiEvent.OnButtonClicked -> {
-                val temperature = getWeather()
-                return previousState.copy(temperature = temperature)
-             }
+                viewModelScope.launch {
+                    interactor.getWeather().fold(
+                        onError = {
+                            processDataEvent(DataEvent.onWeatherFetchFailed(error = it))
+                        },
+                        onSuccess = {
+                            processDataEvent(DataEvent.onWeatherFetchSucceed(temperature = it.temperature))
+                        }
+                    )
+                }
+                return previousState.copy(isLoading = true)
+            }
+            is DataEvent.onWeatherFetchSucceed -> {
+                return previousState.copy(isLoading = false, temperature = event.temperature)
+            }
             else -> return null
         }
     }
 }
+
