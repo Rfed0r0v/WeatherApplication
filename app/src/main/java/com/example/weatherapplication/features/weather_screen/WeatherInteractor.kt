@@ -1,6 +1,5 @@
 package com.example.weatherapplication.features.weather_screen
 
-import androidx.lifecycle.ViewModel
 import com.example.weatherapplication.base.Either
 import com.example.weatherapplication.base.attempt
 import com.example.weatherapplication.features.weather_screen.data.WeatherRepo

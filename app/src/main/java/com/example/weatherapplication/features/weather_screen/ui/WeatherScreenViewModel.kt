@@ -1,6 +1,5 @@
 package com.example.weatherapplication.features.weather_screen.ui
 
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.weatherapplication.base.BaseViewModel
 import com.example.weatherapplication.base.Event
